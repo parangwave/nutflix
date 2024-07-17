@@ -3,6 +3,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
+
+// style
+import GlobalStyle from "./styles/GlobalStyle";
+
 const client = new QueryClient();
 
 const root = ReactDOM.createRoot(
@@ -11,6 +15,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
+    <GlobalStyle />
     <QueryClientProvider client={client}>
       <RouterProvider router={router} />
     </QueryClientProvider>
