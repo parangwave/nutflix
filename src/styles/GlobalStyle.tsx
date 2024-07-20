@@ -63,17 +63,10 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-style: normal;
   }
+  
   body {
     height: 100vh;
     font-family: "Pretendard", sans-serif;
-    background-color: #ff4757;
-    background: linear-gradient(-20deg, #ff0844, #ffb199) no-repeat;
-    color: #FFFCF4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    font-weight: 700;
   }
 `;
 
