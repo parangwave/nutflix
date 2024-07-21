@@ -1,4 +1,4 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "react-query";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
@@ -16,8 +16,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <>
-    <GlobalStyle />
     <QueryClientProvider client={client}>
+      <GlobalStyle />
       <ThemeProvider theme={lightTheme}>
         <RouterProvider router={router} />
       </ThemeProvider>
