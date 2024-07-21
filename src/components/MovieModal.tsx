@@ -2,7 +2,11 @@ import { useQuery } from "react-query";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import { DefaultTheme } from "styled-components";
+
+// api
 import { getMovie, makeImagePath } from "../utils/api";
+
+// types
 import { MovieModalProps } from "../utils/types";
 
 // icons
