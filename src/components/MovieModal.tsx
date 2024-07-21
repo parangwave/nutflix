@@ -30,6 +30,7 @@ const Modal = styled(motion.div)<{ src: string }>`
   height: 80vh;
   border-radius: 15px;
   background-image: url(${(props) => props.src});
+  background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: ${(props) => props.theme.bg};
