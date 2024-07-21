@@ -88,15 +88,15 @@ const ModalContentContainer = styled.div`
 `;
 
 const ModalContentLi = styled.li<{ tag?: keyof DefaultTheme["tags"] }>`
-  font-weight: 600;
+  font-weight: 500;
 
   & > span:first-child {
     background-color: ${(props) =>
       props.tag ? props.theme.tags[props.tag] : props.theme.bg};
     color: ${(props) => props.theme.bg};
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     letter-spacing: 0.5px;
-    padding: 0.2rem 0.4rem;
+    padding: 0.2rem 0.5rem;
     border-radius: 2rem;
     margin-right: 0.4rem;
   }
