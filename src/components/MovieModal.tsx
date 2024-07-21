@@ -150,11 +150,11 @@ export default function MovieModal({ id, onClose }: MovieModalProps) {
           <ul>
             <ModalContentLi tag="budgetTag">
               <span>Budget</span>
-              <span>${data.budget}</span>
+              <span>${Intl.NumberFormat().format(data.budget)}</span>
             </ModalContentLi>
             <ModalContentLi tag="revenueTag">
               <span>Revenue</span>
-              <span>{data.revenue}</span>
+              <span>${Intl.NumberFormat().format(data.revenue)}</span>
             </ModalContentLi>
             <ModalContentLi tag="runtimeTag">
               <span>Runtime</span>
