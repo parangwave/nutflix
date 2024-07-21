@@ -5,6 +5,9 @@ import { DefaultTheme } from "styled-components";
 import { getMovie, makeImagePath } from "../utils/api";
 import { MovieModalProps } from "../utils/types";
 
+// icons
+import { XCircleIcon } from "../asset/icons/XCircle";
+
 const Overlay = styled(motion.div)`
   position: fixed;
   top: 0;
@@ -24,10 +27,22 @@ const Modal = styled(motion.div)`
   border-radius: 15px;
   width: 80%;
 
-  img {
-    display: block;
-    margin: 0 auto;
-    width: 70%;
+const ModalCloseButton = styled(motion.button)`
+  cursor: pointer;
+  margin: 1.2rem;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 8%;
+
+  svg {
+    fill: ${(props) => props.theme.bg};
+  }
+
+  &:hover {
+    svg {
+      opacity: 1;
+    }
   }
 `;
 
@@ -89,8 +104,15 @@ export default function MovieModal({ id, onClose }: MovieModalProps) {
         animate={{ y: 0 }}
         exit={{ y: 50 }}
       >
-
-        <img src={makeImagePath(data.poster_path)} alt={data.title} />
+        <ModalCloseButton
+          onClick={onClose}
+          initial={{ opacity: 0.7 }}
+          whileHover={{ opacity: 1 }}
+          whileTap={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <XCircleIcon />
+        </ModalCloseButton>
 
         <ModalContentContainer>
           <h1>{data.title}</h1>
