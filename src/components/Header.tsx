@@ -36,6 +36,17 @@ const NavItem = styled(Link)<{ isActive: boolean }>`
   }
 `;
 
+const Selected = styled(motion.div)`
+  position: absolute;
+  bottom: -1.5rem;
+  background-color: ${(props) => props.theme.primary};
+`;
+
+// const ThemeToggleButton = styled.button`
+//   border: none;
+//   cursor: pointer;
+// `;
+
 const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
   const location = useLocation();
   const [selectedTab, setSelectedTab] = useState(location.pathname);
@@ -64,6 +75,21 @@ const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
         >
           Now Playing
         </NavItem>
+        <Selected
+          layoutId="selectedMenu"
+          initial={false}
+          animate={{
+            left:
+              selectedTab === "/"
+                ? "17vw"
+                : selectedTab === "/coming-soon"
+                ? "46vw"
+                : "77vw",
+            width: "15px",
+            height: "15px",
+            borderRadius: "50%",
+          }}
+        />
       </Nav>
     </HeaderContainer>
   );
