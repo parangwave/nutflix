@@ -83,6 +83,13 @@ const ModalContentLi = styled.li<{ tag?: keyof DefaultTheme["tags"] }>`
   }
 `;
 
+// variants for nodal animation
+const modalVariants = {
+  initial: { opacity: 0, y: -50 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: 50 },
+};
+
 export default function MovieModal({ id, onClose }: MovieModalProps) {
   const { data, error, isLoading } = useQuery(["movieDetail", id], () =>
     getMovie(id)
@@ -97,12 +104,15 @@ export default function MovieModal({ id, onClose }: MovieModalProps) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
     >
       <Modal
         onClick={(e) => e.stopPropagation()}
-        initial={{ y: -50 }}
-        animate={{ y: 0 }}
-        exit={{ y: 50 }}
+        variants={modalVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={{ duration: 0.3 }}
       >
         <ModalCloseButton
           onClick={onClose}
