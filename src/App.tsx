@@ -7,6 +7,12 @@ import Header from "./components/Header";
 
 export default function App() {
   const [selectedMovie, setSelectedMovie] = useState<string | null>(null);
+  const [theme, setTheme] = useState("lightTheme");
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "lightTheme" ? "darkTheme" : "lightTheme"));
+  };
+
   return (
     <div>
       <Header toggleTheme={toggleTheme} />
