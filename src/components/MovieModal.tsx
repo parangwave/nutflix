@@ -21,11 +21,19 @@ const Overlay = styled(motion.div)`
   z-index: 10;
 `;
 
-const Modal = styled(motion.div)`
-  background: #fff;
-  padding: 2rem;
-  border-radius: 15px;
+const Modal = styled(motion.div)<{ src: string }>`
   width: 80%;
+  height: 80vh;
+  border-radius: 15px;
+  background-image: url(${(props) => props.src});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: ${(props) => props.theme.bg};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+`;
 
 const ModalCloseButton = styled(motion.button)`
   cursor: pointer;
@@ -49,12 +57,19 @@ const ModalCloseButton = styled(motion.button)`
 const ModalContentContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   gap: 1rem;
+  width: 100%;
+  height: 50%;
+  padding: 1.5rem;
+  border-radius: 15px;
+  background-color: ${(props) => props.theme.bg};
+  background: linear-gradient(transparent 0%, ${(props) => props.theme.bg} 30%);
 
   h1 {
     font-size: 2rem;
     font-weight: 700;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
   }
 
   p {
@@ -107,6 +122,7 @@ export default function MovieModal({ id, onClose }: MovieModalProps) {
       transition={{ duration: 0.3 }}
     >
       <Modal
+        src={makeImagePath(data.poster_path)}
         onClick={(e) => e.stopPropagation()}
         variants={modalVariants}
         initial="initial"
